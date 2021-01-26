@@ -10,7 +10,7 @@ import './header.styles.scss';
 
 const Header = ( { currentUser }) => (
     <div className='header'>
-        <Link className='entry-container' to="/">
+        <Link className='entry-container' to="/entry">
             <Entry className='entry'/>
         </Link>
         <div className='options'>
