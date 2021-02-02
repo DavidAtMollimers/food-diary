@@ -1,6 +1,18 @@
+import { Button, FormControl, makeStyles, TextField } from '@material-ui/core';
 import React from 'react';
 
 import { auth, createUserProfileDocument } from '../firebase/firebase.utils';
+
+
+const useStyles = makeStyles((theme) => ({
+    formControl: {
+        margin: theme.spacing(1),
+        minWidth: 120
+    },
+    selectEmpty: {
+        marginTop: theme.spacing(2)
+    }
+}));
 
 class SignUp extends React.Component {
     constructor(props) {
@@ -24,7 +36,7 @@ class SignUp extends React.Component {
         }
 
         try {
-            const { users } = await auth.createUserWithEmailAndPassword(email, password);
+            const { user } = await auth.createUserWithEmailAndPassword(email, password);
 
             await createUserProfileDocument(user, { displayName });
             this.setState({
@@ -33,6 +45,8 @@ class SignUp extends React.Component {
                 password: '',
                 confirmPassword: ''
             });
+        } catch (error){
+            console.error(error);
         }
     };
 
@@ -46,13 +60,48 @@ class SignUp extends React.Component {
         const { displayName, email, password, confirmPassword } = this.state;
         return (
             <div className="sign-up">
-                <h2 className="title">I do not have an account</h2>
-                <span>Sign up with your email and password</span>
                 <form className="sign-up-form" onSubmit={this.handleSubmit}>
+                    <FormControl className={useStyles.formControl}>
 
+                    <TextField
+                        name="displayName"
+                        type="text"
+                        value={displayName}
+                        onChange={this.handleChange}
+                        helperText="Display Name"
+                        required
+                    />
+                    <TextField
+                        name="email"
+                        type="email"
+                        value={email}
+                        onChange={this.handleChange}
+                        helperText="Email"
+                        required
+                    />
+                    <TextField
+                        name="password"
+                        type="password"
+                        value={password}
+                        onChange={this.handleChange}
+                        helperText="Password"
+                        required
+                    />
+                    <TextField
+                        name="confirmPassword"
+                        type="password"
+                        value={confirmPassword}
+                        onChange={this.handleChange}
+                        helperText="Confirm Password"
+                        required
+                    />
+                    <Button type="submit" color="primary" variant="contained">Save Entry</Button>
+
+                    </FormControl>
                 </form>
             </div>
         )
     }
+};
 
-}
+export default SignUp;
