@@ -6,6 +6,7 @@ import HomePage from './pages/homepage/homepage.page';
 import Entry from './pages/entry/entry.page';
 import Contact from './pages/contactAndAbout/contact.page';
 import Header from './components/header/header.component';
+import SignInOrUpPage from './pages/sign-in-or-up/sign-in-or-up.page';
 
 
 class App extends React.Component {
@@ -28,6 +29,7 @@ class App extends React.Component {
                   <Route exact path='/diary' component={HomePage}/>
                   <Route exact path='/metrics' component={HomePage}/>
                   <Route exact path='/contact' component={Contact}/>
+                  <Route exact path='/signin' component={SignInOrUpPage}/>
               </Switch>
           </div>
         );

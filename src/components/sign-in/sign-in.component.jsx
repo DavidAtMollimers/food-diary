@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, FormControl, makeStyles, TextField } from '@material-ui/core';
+import { Button, FormControl, makeStyles, TextField, Box } from '@material-ui/core';
 import { auth, signInWithGoogle } from '../../components/firebase/firebase.utils';
 
 const useStyles = makeStyles((theme) => ({
@@ -10,6 +10,13 @@ const useStyles = makeStyles((theme) => ({
         },
     },
 }));
+
+const borderProps = {
+    bgcolor: 'background.paper',
+    m: 1,
+    borderColor: 'text.primary',
+    padding: '40px',
+};
 
 class SignIn extends React.Component {
     constructor(props){
@@ -44,32 +51,34 @@ class SignIn extends React.Component {
         return(
             <div className='sign-in'>
                 <form className='sign-in-form' noValidate autoComplete="off">
-                    <FormControl classname={useStyles.root}>
-                    <TextField
-                        className='email'
-                        name='email'
-                        type='email'
-                        value={this.state.email}
-                        onChange={this.handleChange}
-                        helperText='Email'
-                        required
-                    />
-                    <TextField
-                        className='password'
-                        name='password'
-                        type='password'
-                        value={this.state.password}
-                        onChange={this.handleChange}
-                        helperText='Password'
-                        required
-                    />
-                    <Button
-                        className='submit-button'
-                        type='submit'
-                        color='primary'
-                        variant='contained'
-                    >Log in</Button>
-                    </FormControl>
+                    <Box borderLeft={1} borderTop={1} borderBottom={1} {...borderProps}>
+                        <FormControl classname={useStyles.root}>
+                        <TextField
+                            className='email'
+                            name='email'
+                            type='email'
+                            value={this.state.email}
+                            onChange={this.handleChange}
+                            helperText='Email'
+                            required
+                        />
+                        <TextField
+                            className='password'
+                            name='password'
+                            type='password'
+                            value={this.state.password}
+                            onChange={this.handleChange}
+                            helperText='Password'
+                            required
+                        />
+                        <Button
+                            className='submit-button'
+                            type='submit'
+                            color='primary'
+                            variant='contained'
+                        >Log in</Button>
+                        </FormControl>
+                    </Box>
                 </form>
             </div>
         )

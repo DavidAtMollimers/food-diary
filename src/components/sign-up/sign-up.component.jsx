@@ -1,4 +1,4 @@
-import { Button, FormControl, makeStyles, TextField } from '@material-ui/core';
+import { Button, FormControl, makeStyles, TextField, Box } from '@material-ui/core';
 import React from 'react';
 
 import { auth, createUserProfileDocument } from '../firebase/firebase.utils';
@@ -13,6 +13,13 @@ const useStyles = makeStyles((theme) => ({
         marginTop: theme.spacing(2)
     }
 }));
+
+const borderProps = {
+    bgcolor: 'background.paper',
+    m: 1,
+    borderColor: 'text.primary',
+    padding: '40px',
+};
 
 class SignUp extends React.Component {
     constructor(props) {
@@ -61,43 +68,45 @@ class SignUp extends React.Component {
         return (
             <div className="sign-up">
                 <form className="sign-up-form" onSubmit={this.handleSubmit}>
-                    <FormControl className={useStyles.formControl}>
+                    <Box borderRight={1} borderTop={1} borderBottom={1} {...borderProps}>
+                        <FormControl className={useStyles.formControl}>
 
-                    <TextField
-                        name="displayName"
-                        type="text"
-                        value={displayName}
-                        onChange={this.handleChange}
-                        helperText="Display Name"
-                        required
-                    />
-                    <TextField
-                        name="email"
-                        type="email"
-                        value={email}
-                        onChange={this.handleChange}
-                        helperText="Email"
-                        required
-                    />
-                    <TextField
-                        name="password"
-                        type="password"
-                        value={password}
-                        onChange={this.handleChange}
-                        helperText="Password"
-                        required
-                    />
-                    <TextField
-                        name="confirmPassword"
-                        type="password"
-                        value={confirmPassword}
-                        onChange={this.handleChange}
-                        helperText="Confirm Password"
-                        required
-                    />
-                    <Button type="submit" color="primary" variant="contained">Save Entry</Button>
+                        <TextField
+                            name="displayName"
+                            type="text"
+                            value={displayName}
+                            onChange={this.handleChange}
+                            helperText="Display Name"
+                            required
+                        />
+                        <TextField
+                            name="email"
+                            type="email"
+                            value={email}
+                            onChange={this.handleChange}
+                            helperText="Email"
+                            required
+                        />
+                        <TextField
+                            name="password"
+                            type="password"
+                            value={password}
+                            onChange={this.handleChange}
+                            helperText="Password"
+                            required
+                        />
+                        <TextField
+                            name="confirmPassword"
+                            type="password"
+                            value={confirmPassword}
+                            onChange={this.handleChange}
+                            helperText="Confirm Password"
+                            required
+                        />
+                        <Button type="submit" color="primary" variant="contained">Save Entry</Button>
 
-                    </FormControl>
+                        </FormControl>
+                    </Box>
                 </form>
             </div>
         )
