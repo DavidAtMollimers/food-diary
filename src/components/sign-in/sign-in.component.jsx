@@ -1,6 +1,15 @@
 import React from 'react';
-import { Button, TextField } from '@material-ui/core';
+import { Button, FormControl, makeStyles, TextField } from '@material-ui/core';
 import { auth, signInWithGoogle } from '../../components/firebase/firebase.utils';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        '& .MuiTextField-root': {
+            margin: theme.spacing(1),
+            minWidth: 120,
+        },
+    },
+}));
 
 class SignIn extends React.Component {
     constructor(props){
@@ -34,32 +43,34 @@ class SignIn extends React.Component {
     render() {
         return(
             <div className='sign-in'>
-                <h2>I already have an account</h2>
-                <TextField
-                    className='email'
-                    name='email'
-                    type='email'
-                    value={this.state.email}
-                    onChange={this.handleChange}
-                    helperText='Email'
-                    required
-                />
-                <TextField
-                    className='password'
-                    name='password'
-                    type='password'
-                    value={this.state.password}
-                    onChange={this.handleChange}
-                    helperText='Password'
-                    required
-                />
-                <Button
-                    className='submit-button'
-                    type='submit'
-                    color='primary'
-                    variant='contained'
-                >Log in</Button>
-
+                <form className='sign-in-form' noValidate autoComplete="off">
+                    <FormControl classname={useStyles.root}>
+                    <TextField
+                        className='email'
+                        name='email'
+                        type='email'
+                        value={this.state.email}
+                        onChange={this.handleChange}
+                        helperText='Email'
+                        required
+                    />
+                    <TextField
+                        className='password'
+                        name='password'
+                        type='password'
+                        value={this.state.password}
+                        onChange={this.handleChange}
+                        helperText='Password'
+                        required
+                    />
+                    <Button
+                        className='submit-button'
+                        type='submit'
+                        color='primary'
+                        variant='contained'
+                    >Log in</Button>
+                    </FormControl>
+                </form>
             </div>
         )
     }
