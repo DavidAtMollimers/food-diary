@@ -16,15 +16,19 @@ const useStyles  = makeStyles((theme) => ({
 
 const mealTypes = [
     {
+        id: 1,
         meal: 'breakfast'
     },
     {
+        id: 2,
         meal: 'snack'
     },
     {
+        id: 3,
         meal: 'lunch'
     },
     {
+        id: 4,
         meal: 'dinner'
     },
 ];
@@ -45,19 +49,15 @@ class DiaryEntry extends React.Component {
 
     // take the input and assign the value to the corresponding parameter of the state
     handleChange = event => {
-    const { name, value } = event.target;
-
-    console.log("name: ", name);
-    console.log("value: ", value)
-
-    this.setState({[name]: value});
+        const { name, value } = event.target;
+        this.setState({[name]: value});
     };
 
     handleSubmit = async event => {
-    event.preventDefault();
-    const { meal, dish, weight, kcal, date, userId } = this.state;
-    // store the data as an entry in the diary table of the database
-    // use a try with some kind of firebase.storage call
+        event.preventDefault();
+        const { meal, dish, weight, kcal, date, userId } = this.state;
+        // store the data as an entry in the diary table of the database
+        // use a try with some kind of firebase.storage call
     };
 
     render() {

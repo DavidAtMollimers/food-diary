@@ -52,7 +52,7 @@ class SignIn extends React.Component {
             <div className='sign-in'>
                 <form className='sign-in-form' noValidate autoComplete="off">
                     <Box borderLeft={1} borderTop={1} borderBottom={1} {...borderProps}>
-                        <FormControl classname={useStyles.root}>
+                        <FormControl className={useStyles.root}>
                         <TextField
                             className='email'
                             name='email'
@@ -72,11 +72,17 @@ class SignIn extends React.Component {
                             required
                         />
                         <Button
-                            className='submit-button'
+                            className='email-login-button'
                             type='submit'
                             color='primary'
                             variant='contained'
                         >Log in</Button>
+                        <Button
+                            className='google-login-button'
+                            onClick={signInWithGoogle}
+                            color='secondary'
+                            variant='contained'
+                        >Log in with Google</Button>
                         </FormControl>
                     </Box>
                 </form>
