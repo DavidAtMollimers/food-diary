@@ -1,11 +1,16 @@
-#name {
-    margin-top: 25px;
-    width: 70%;
+.container {
+    display: flex;
+    justify-content: space-between;
+
+    #name {
+        margin-top: 25px;
+    }
+
+    #numerical-value {
+        margin-top: 25px;
+    }
 }
 
-#numerical-value {
-    margin-top: 25px;
-}
 
 #submit-button {
     margin: 25px 100px 25px 100px;

@@ -62,7 +62,7 @@ class DiaryEntry extends React.Component {
                         onChange={this.handleChange}
                         InputLabelProps={{ shrink: true, }}
                     />
-                    <div id="container">
+                    <div className="container">
                         <TextField
                             id="name"
                             name="dish"
@@ -78,7 +78,7 @@ class DiaryEntry extends React.Component {
                             helperText="weight of food (g)"
                             onChange={this.handleChange}/>
                     </div>
-                    <div>
+                    <div className="container">
                         <TextField
                             id="name"
                             name="drink"

@@ -10,20 +10,18 @@ import './header.styles.scss';
 
 const Header = ( { currentUser }) => (
     <div className='header'>
-        <Link className='entry-container' to="/entry">
-            <Entry className='entry'/>
-        </Link>
         <div className='options'>
+            <Link className='entry-container' to="/entry">
+                <Entry className='entry'/>
+            </Link>
             <Link className='diary-container' to="/">
                 <Diary className='diary'/>
-            </Link>
-            <Link className='metrics-container' to="/">
-                <Metrics className='metrics'/>
             </Link>
             <Link className='contact-container' to="/contact">
                 <Contact className='contact'/>
             </Link>
 
+            {/* Move the sign in/out button to the start screen and user profile */}
             {
                 currentUser ?
                 <div className='option' onClick={() => auth.signOut()}>SIGN OUT</div>
