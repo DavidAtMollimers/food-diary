@@ -1,18 +1,27 @@
+h1 {
+    text-align: center;
+}
+
 .container {
     display: flex;
+    width: 340px;
     justify-content: space-between;
 
     #name {
+        width: 240px;
         margin-top: 25px;
     }
 
     #numerical-value {
+        width: 80px;
         margin-top: 25px;
     }
 }
 
 
 #submit-button {
-    margin: 25px 100px 25px 100px;
+    width: 150px;
+    align-self: center;
+    margin-top: 25px;
 
 }

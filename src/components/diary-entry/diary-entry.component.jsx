@@ -53,7 +53,6 @@ class DiaryEntry extends React.Component {
                 <form  onSubmit={this.handleSubmit} autoComplete="off">
                 <FormControl id="form-control">
                     <TextField
-                        id="user-data"
                         name="date_time"
                         helperText="when did you eat?"
                         type="datetime-local"
@@ -74,8 +73,9 @@ class DiaryEntry extends React.Component {
                             id="numerical-value"
                             name="weight"
                             type="number"
+                            defaultValue="0"
                             placeholder="weight"
-                            helperText="weight of food (g)"
+                            helperText="weight (g)"
                             onChange={this.handleChange}/>
                     </div>
                     <div className="container">
@@ -90,8 +90,9 @@ class DiaryEntry extends React.Component {
                             id="numerical-value"
                             name="volume"
                             type="number"
+                            defaultValue="0"
                             placeholder="volume"
-                            helperText="volume of drink (dl)"
+                            helperText="volume (dl)"
                             onChange={this.handleChange}/>
                     </div>
                     <Button type='submit' color="primary" variant="contained" id="submit-button">Save Entry</Button>

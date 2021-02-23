@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { auth } from '../firebase/firebase.utils';
 import { ReactComponent as Entry } from '../../assets/pencil.svg';
 import { ReactComponent as Diary } from '../../assets/notebook.svg';
-import { ReactComponent as Metrics } from '../../assets/metrics.svg';
 import { ReactComponent as Contact } from '../../assets/contact.svg';
 import { connect } from 'react-redux';
 import './header.styles.scss';
