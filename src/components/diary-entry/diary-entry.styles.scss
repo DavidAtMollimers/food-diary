@@ -1,27 +1,19 @@
-h1 {
-    text-align: center;
-}
-
-.container {
+.buttons {
     display: flex;
-    width: 340px;
-    justify-content: space-between;
-
-    #name {
-        width: 240px;
-        margin-top: 25px;
-    }
-
-    #numerical-value {
-        width: 80px;
-        margin-top: 25px;
-    }
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 80px;
 }
 
-
-#submit-button {
+.submit-button {
     width: 150px;
     align-self: center;
     margin-top: 25px;
+    align-self: center;
+}
 
+.toggle-button {
+    width: 150px;
+    align-self: center;
+    margin-top: 25px;
 }
